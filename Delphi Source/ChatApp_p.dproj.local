@@ -1,8 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<BorlandProject>
-	<Transactions>
-    <Transaction>2017/04/12 14:30:40.377.pas,C:\Users\Xander Terblanche\Documents\RAD Studio\Projects\Unit1.pas=C:\Users\Xander Terblanche\Documents\GitHUB Reo\ChatApp_DELPHI\Delphi Source\Main_u.pas</Transaction>
-    <Transaction>2017/04/12 14:30:40.377.dfm,C:\Users\Xander Terblanche\Documents\RAD Studio\Projects\Unit1.dfm=C:\Users\Xander Terblanche\Documents\GitHUB Reo\ChatApp_DELPHI\Delphi Source\Main_u.dfm</Transaction>
-    <Transaction>2017/04/12 14:30:51.654.dproj,C:\Users\Xander Terblanche\Documents\RAD Studio\Projects\Project1.dproj=C:\Users\Xander Terblanche\Documents\GitHUB Reo\ChatApp_DELPHI\Delphi Source\ChatApp_p.dproj</Transaction>
-  </Transactions>
-</BorlandProject>
