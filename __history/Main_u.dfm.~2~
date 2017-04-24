@@ -3,7 +3,7 @@ object Form1: TForm1
   Top = 0
   Caption = 'Form1'
   ClientHeight = 476
-  ClientWidth = 493
+  ClientWidth = 884
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -11,12 +11,11 @@ object Form1: TForm1
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = False
-  OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
   object lbl1: TLabel
-    Left = 240
-    Top = 21
+    Left = 176
+    Top = 8
     Width = 50
     Height = 13
     Caption = 'Client Side'
@@ -43,39 +42,43 @@ object Form1: TForm1
     Height = 60
     Caption = 'Send'
     TabOrder = 1
-    OnClick = btn1Click
   end
   object pnl1: TPanel
     Left = 8
-    Top = 56
+    Top = 27
     Width = 409
-    Height = 346
+    Height = 375
     TabOrder = 2
+    object redt2: TRichEdit
+      Left = 0
+      Top = 0
+      Width = 409
+      Height = 375
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      HideScrollBars = False
+      Lines.Strings = (
+        '')
+      ParentFont = False
+      ReadOnly = True
+      TabOrder = 0
+    end
   end
-  object btn2: TButton
-    Left = 8
-    Top = 8
-    Width = 154
-    Height = 42
-    Caption = 'Connect'
-    TabOrder = 3
-    OnClick = btn2Click
-  end
-  object mmo1: TMemo
-    Left = 8
-    Top = 56
-    Width = 409
-    Height = 346
-    Lines.Strings = (
-      'mmo1')
-    TabOrder = 4
+  object ServerSocket1: TServerSocket
+    Active = False
+    Port = 0
+    ServerType = stNonBlocking
+    Left = 440
+    Top = 240
   end
   object ClientSocket1: TClientSocket
     Active = False
     ClientType = ctNonBlocking
-    Port = 62222
-    OnRead = ClientSocket1Read
+    Port = 0
     Left = 448
-    Top = 8
+    Top = 296
   end
 end

@@ -1,0 +1,77 @@
+unit Client_Side;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms, Dialogs, StdCtrls, ScktComp, ComCtrls;
+
+type
+  TForm2 = class(TForm)
+    lbl1: TLabel;
+    btn2: TButton;
+    ServerSocket1: TServerSocket;
+    btn1: TButton;
+    mmo1: TMemo;
+    redt1: TRichEdit;
+    procedure btn2Click(Sender: TObject);
+    procedure btn1Click(Sender: TObject);
+    procedure ServerSocket1ClientConnect(Sender: TObject; Socket: TCustomWinSocket);
+    procedure ServerSocket1ClientRead(Sender: TObject; Socket: TCustomWinSocket);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Form2: TForm2;
+
+implementation
+
+{$R *.dfm}
+
+procedure TForm2.btn1Click(Sender: TObject);
+var
+  i: Integer;
+  MsgString: string;
+begin
+  MsgString := redt1.Text;
+  redt1.Clear;
+  mmo1.Lines.Add('ServerSide : ' + MsgString);
+  for i := 0 to ServerSocket1.Socket.ActiveConnections - 1 do
+    ServerSocket1.Socket.Connections[i].SendText(MsgString); //Sent
+end;
+
+procedure TForm2.btn2Click(Sender: TObject);
+begin
+  with ServerSocket1 do
+  begin
+    if Active = True then
+    begin
+      btn2.Caption := 'STOP SERVER';
+      mmo1.Lines.Add('Server Ended');
+      Active := False;
+    end
+    else
+    begin
+      btn2.Caption := 'START SERVER';
+      Active := True;
+      ;
+      mmo1.Lines.Add('Server Started at PORT : 62222');
+    end;
+  end;
+end;
+
+procedure TForm2.ServerSocket1ClientConnect(Sender: TObject; Socket: TCustomWinSocket);
+begin
+  Socket.SendText('Connected');
+end;
+
+procedure TForm2.ServerSocket1ClientRead(Sender: TObject; Socket: TCustomWinSocket);
+begin
+  mmo1.Text := mmo1.Text + 'Client ' + IntToStr(Socket.SocketHandle) + ' :' + Socket.ReceiveText + #13#10;
+end;
+
+end.
+
+

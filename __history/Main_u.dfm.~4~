@@ -75,7 +75,7 @@ object Form1: TForm1
     ClientType = ctNonBlocking
     Port = 62222
     OnRead = ClientSocket1Read
-    Left = 448
-    Top = 8
+    Left = 440
+    Top = 144
   end
 end

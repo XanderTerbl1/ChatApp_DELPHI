@@ -1,0 +1,49 @@
+unit Client_Side;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms, Dialogs, StdCtrls, ScktComp;
+
+type
+  TForm2 = class(TForm)
+    lbl1: TLabel;
+    btn2: TButton;
+    ServerSocket1: TServerSocket;
+    btn1: TButton;
+    mmo1: TMemo;
+    procedure btn2Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Form2: TForm2;
+
+implementation
+
+{$R *.dfm}
+
+procedure TForm2.btn2Click(Sender: TObject);
+begin
+  with ServerSocket1 do
+  begin
+    if Active = True then
+    begin
+      btn2.Caption := 'STOP SERVER';
+      Active := False;
+    end
+    else
+    begin
+      btn2.Caption := 'START SERVER';
+      Active := False;
+
+    end;
+  end;
+end;
+
+end.
+
+
